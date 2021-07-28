@@ -1,0 +1,48 @@
+.container{
+    height: 5vh;
+    
+}
+.icons{
+    display: flex;
+    flex-direction: row ;
+    
+}
+.guide{
+    padding-top: 17px;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    
+}
+ h4{
+    padding: 10px;
+    color: #1c2237;
+}
+.fa-user{
+    color: rgb(53, 3, 76);
+}
+.customer{
+    padding-top: 17px;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    margin-left: 300px;
+    
+}
+.fa-cogs{
+    color: rgb(53, 3, 76);
+}
+.cancel{
+    padding-top: 17px;
+    display: flex;
+    flex-direction: column;
+    
+    text-align: center;
+    margin-left: 300px;
+    
+}
+.fa-reply{
+    color: rgb(53, 3, 76);
+}

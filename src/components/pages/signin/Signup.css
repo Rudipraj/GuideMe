@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+.form-container{
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    
+}
+.form-container >h2{
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    letter-spacing: 4px;
+    margin-bottom: 40px;
+}
+.input-fields{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    
+}
+.inputname{
+    width: 500px;
+    align-self: center;
+    height: 42px;
+    margin-top: 20px;
+    border: 1px solid white;
+    border-radius: 4px;
+    
+}
+.userinfo{
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    letter-spacing: 4px;
+    font-weight: bold;
+    height: 4px;
+    margin-bottom: 20px;
+}
+::placeholder{
+    padding: 20px;
+    
+}
+
+.submit-button{
+    width: 200px;
+    align-self: center;
+    height: 42px;
+    border: 1px solid red;
+    background-color: red;
+    color: white;
+    font-family: 'Indie Flower', cursive;
+    letter-spacing: 4px;
+    font-weight: bold;
+    font-size: 18px;
+    border-radius: 8px;
+    margin-top: 20px;
+    padding: 8px;
+    cursor: pointer;
+}

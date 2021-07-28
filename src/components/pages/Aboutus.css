@@ -1,0 +1,239 @@
+.about-container{
+    background-color: white;
+    height:500px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.img-container{
+    background-image: url('../images//tourist.jpg');
+    height: 500px;
+    width: 1500px;
+    background-position: center;
+    background-size: cover;
+}
+
+.img-container:hover {
+    -ms-transform: scale(1.5); /* IE 9 */
+    -webkit-transform: scale(1.5); /* Safari 3-8 */
+    transform: scale(1.001);
+    
+  }
+
+.appeal-container{
+    height: 500px;
+    width: 100%;
+    
+    background-color: rgb(218, 236, 238);
+}
+.appeal-content{
+    margin-top: 40px;
+    padding: 20px;
+}
+.appeal-content p{
+    word-spacing: 8px;
+    letter-spacing: 4px;
+    margin-bottom: 60px;
+    line-height: 50px;
+    margin-left: 40px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+    font-size: 20px;
+}
+.appeal-content button{
+    height: 50px;
+    width: 300px;
+    background-color: white;
+    color: blue;
+    border: 1px solid white;
+    font-family: 'Indie Flower', cursive;
+    font-size: 18px;
+    letter-spacing: 4px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 40px;
+    font-weight: bold;
+}
+.appeal-content button:hover{
+    background-color: blue;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+.we-part{
+    font-size: 32px;
+    font-family: 'Indie Flower', cursive;
+}
+
+
+.abt-container{
+height: 100vh;
+background-color: #fff;
+
+}
+.abt-container h1{
+    color: teal;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.f-container{
+    background-color: white;
+    width: 800px;
+    height: 80vh;
+}
+
+.name-container{
+    display: flex;
+    
+}
+.fn-container{
+    display:flex;
+    flex-direction: column;
+    
+    padding: 40px;
+}
+.fn-container label{
+    font-size: 20px;
+    padding: 8px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-family: 'Indie Flower', cursive;
+}
+.fn-container input{
+    height: 50px;
+    width: 300px;
+    padding: 8px;
+    background-color: tan;
+    border: 1px solid tan;
+    border-radius: 4px;
+}
+.ln-container{
+    display:flex;
+    flex-direction: column;
+    padding: 40px;
+}
+.ln-container label{
+    font-size: 20px;
+    padding: 8px;
+    letter-spacing: 4px;
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+}
+.ln-container input{
+    height: 50px;
+    width: 300px;
+    padding: 8px;
+    background-color: tan;
+    border: 1px solid tan;
+    border-radius: 4px;
+}
+.email-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 40px;
+    
+
+}
+.email-container label{
+    font-size: 20px;
+    padding: 8px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-family: 'Indie Flower', cursive;
+}
+.email-container input{
+    height: 50px;
+    width: 600px;
+    background-color: tan;
+    border: 1px solid tan;
+    border-radius: 4px;
+}
+.message-container{
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+.message-container label{
+    font-size: 20px;
+    padding: 8px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-family: 'Indie Flower', cursive;
+}
+.message-container textarea{
+    height: 200px;
+    width: 680px;
+    background-color: tan;
+    border: 1px solid tan;
+    border-radius: 4px;
+}
+.f-container button{
+    font-size: 20px;
+    padding: 8px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-family: 'Indie Flower', cursive;
+    margin-left: 40px;
+    margin-top: 30px;
+    background-color:  #1c2237;;
+    border: 1px solid  #1c2237;;
+    color: white;
+    border-radius: 8px;
+}
+.contact-bc{
+    background-image: url('../images//contact.jpg');
+    height: 600px;
+    width: 300px;
+    background-position: center;
+    background-size: cover;
+    
+}
+    .contact-part{
+        display: flex;
+        flex-direction: row;
+        
+    }
+    
+
+.abt-2{
+    display: flex;
+    flex-direction: row;
+}
+.contact-info{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    margin-right: 40px;
+}
+.contact-info h5{
+    font-size: 15px;
+    
+    font-weight: bold;
+    letter-spacing: 4px;
+    color:#1c2237;
+    margin-right: 50px;
+    margin-left: 0;
+    margin-top:80px;
+}
+.fa-phone{
+    font-size: 40px;
+    color: rgb(16, 97, 163);
+}
+.fa-envelope{
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: rgb(16, 97, 163);
+}
+.fa-building{
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: rgb(16, 97, 163);
+}
+

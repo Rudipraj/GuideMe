@@ -1,0 +1,31 @@
+.home__hero-section {
+    color: rgb(66, 36, 36);
+    padding: 160px 0;
+  }
+  .container{
+    max-width: fit-content;
+  }
+
+  .input-areas{
+    align-items: center;
+    max-width: 100%;
+    align-content: space-around;
+    
+  }
+  
+  .search-input {
+    
+    padding: 15px 28px ;
+    border-radius: 2px;
+    margin-right: 10px;
+    align-items: center;
+    max-width:100%;
+    outline: none;
+    border: none;
+    font-size: 14px;
+    margin-bottom: 80px;
+    border: 1px solid rgb(255, 253, 253);
+  }
+  .butn{
+    padding-top: 20px;
+  }

@@ -1,0 +1,24 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'PT Sans', sans-serif;
+  }
+.flex-between
+{
+    display: flex;
+    justify-content: space-between;
+}
+.input-user
+{
+    margin: 10px 0;
+    font-size: 18px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+.input-user:active
+{
+    border-color: #b71c1c;
+}

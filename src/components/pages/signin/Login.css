@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+.lcontainer{
+    width: 100%;
+    text-align: center;
+    font-size: 32px;
+    align-content: center;
+    background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+    
+
+}
+.lcontainer >h3{
+    color: white;
+    padding: 50px;
+    font-family: 'Indie Flower', cursive;
+}
+.email, .password{
+    height:60px;
+    width: 400px  ;
+    border: 1px solid white;
+    border-radius: 4px;
+    padding: 20px;
+}
+.user-info{
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.login-button{
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+    color:rgb(19, 13, 105);
+    background-color: white;
+    border: 1px solid white;
+    cursor: pointer;
+}
+.l-text{
+    font-size: 24px;
+    font-weight: bolder;
+    color:rgb(19, 13, 105);
+    font-family: 'Indie Flower', cursive;
+}
+::placeholder{
+    letter-spacing: 4px;
+    
+}
+.create{
+    font-size: 18px;
+    margin-top: 20px;
+    
+}
+.donot{
+    color: rgb(87, 6, 6);
+    
+}
+section {
+    color: #fff;
+    text-align: center;
+}
+
+.pageContainer {
+    height: 100% !important;
+    background: #1c2237;
+}
+@keyframes rightToLeft{
+    from {
+        right: -200px;
+    }
+    to {
+        right: 0;
+    }
+}
+
+article {
+    width: 100%;
+    padding: 20px;
+}
+.login-header
+{
+
+    font-family: "Curlz MT";
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 63px;
+    letter-spacing: 0.5px;
+    color: #fff;
+}
+.buttonWrapper
+{
+    margin-top: 50px;
+    display: grid;
+    grid-gap: 10px;
+}
+.smile-icon
+{
+    font-size: 100px;
+    margin: 50px 0;
+    color: #fff !important;
+
+}
+.login-card
+{
+    padding:20px;
+    margin: 0 auto;
+    border-radius: 20px;
+    height: 766px;
+
+
+}
+.animation
+{
+    animation: rightToLeft 1s 1;
+}
+h1 {
+    font-size: 1.75rem;
+    margin: 0 0 0.75rem 0;
+}
+
+/* Pattern styles */
+.pageContainer .container {
+    display: table;
+    width: 100%;
+}
+.ant-modal-body
+{
+    padding: 0 !important;
+}
+.login-input
+{
+    height: 56px;
+
+}
+.loginButton
+{
+    background: #f9f9f9 !important;
+    color: #000000 !important;
+    mix-blend-mode: normal;
+    border-radius: 6px;
+    width:100%;
+    font-weight: bold;
+    height: 56px;
+    padding: 22px 18px 24px 24px;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+}
+.social-icon
+{
+    font-size: 25px;
+    left: 5px;
+    top: 1px;
+    border-radius: 0;
+}
+.facebook-icon
+{
+    color: #3B5998 !important;
+
+}.google-icon
+ {
+     color: #b71c1c !important;
+
+ }
+
+
+.card-wrapper {
+}
+.facebook-button
+{
+
+}

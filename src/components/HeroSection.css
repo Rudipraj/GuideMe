@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600&display=swap');
+.hero-container{
+    background-image: url('./images/hero.jpg');
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+
+}
+h1{
+    color: #FFF;;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 8px;
+    margin-top: 200px;
+    font-size: 52px;
+    
+}
+.hero-wrapper p{
+    letter-spacing: 4px;
+    color: #FFF;;
+    font-family: 'Indie Flower', cursive;
+}
+.hero-wrapper{
+    padding: 40px;
+    align-content: center;
+    text-align: center;
+    
+}
+
+.s-pan{
+    color: skyblue;
+    
+    font-size: 100px;
+    letter-spacing: 50px;
+    font-family: 'Rajdhani', sans-serif;
+    
+}
+.search-bar{
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.search-input{
+    width: 400px;
+    border-radius: 4px;
+    align-self: center;
+    background-color: white;
+}
+.search-input input{
+    width: 350px;
+    border: 1px solid white;
+    margin: 0;
+    padding: 0;
+    border-radius: 8px;
+    align-self: center;
+    background-color: white;
+}
+.search-input ::placeholder{
+    font-family: 'Indie Flower', cursive;
+    font-weight: bold;
+}
+.search-btn{
+    
+    
+}
+.search-btn button{
+    height: 52px;
+    width: 200px;
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+    border-radius: 8px;
+    font-family: 'Rajdhani', sans-serif;
+    letter-spacing: 4px;
+    font-size: 18px;
+    
+}

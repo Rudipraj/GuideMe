@@ -1,0 +1,14 @@
+.dashboard-wrap
+{
+    max-width: 1200px;
+    margin: auto;
+    min-height: 100vh;
+    color: black;
+}
+.guides-wrap
+{
+    grid-template-columns: repeat(4,1fr);
+    display: grid;
+    gap:20px;
+    padding:2em 1em;
+}
