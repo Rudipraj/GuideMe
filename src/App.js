@@ -6,6 +6,7 @@ import Login from './components/pages/signin/Login'
 import Navbars from './components/Navbars';
 import Signup from './components/pages/signin/Signup'
 import Aboutus from './components/pages/Aboutus'
+import TopDestination from './components/pages/Topdestination'
 import Footer from './components/pages/Footer/Footer';
 import Services from './components/pages/Services'
 import 'antd/dist/antd.css';
@@ -65,6 +66,7 @@ class App extends React.Component {
                     <Route path='/aboutus' component={Aboutus}/>
                     <Route path='/sign-up' component={Login}/>
                     <Route path='/sign-in' component={Signup}/>
+                    <Route path='/destinations' component={TopDestination}/>
                     {/*{isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:'' }*/}
                     <Route path={'/dashboard'} component={Dashboard}/>
                 </Switch>

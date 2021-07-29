@@ -5,6 +5,7 @@ import Wwo from "./Wwo";
 import Topdestination from './Topdestination';
 import {database} from "../../config";
 import AdminCard from "./admin/dashboard/adminCard";
+import {Divider, Skeleton} from "antd";
 
 class Home extends React.Component {
     constructor(props, context) {
@@ -33,13 +34,13 @@ class Home extends React.Component {
             <div>
                 <HeroSection/>
                 <Wwo/>
+                <Divider/>
                 <div style={{maxWidth:1200,margin:"100px auto"}}>
                     <h2 style={{marginLeft:10}}>Featured Guides</h2>
                     <div className="guides-wrap">
-                        {guidesList.filter(guide=>guide.featured).map((guide) => <AdminCard guide={guide}/>)}
+                        {guidesList.filter(guide=>guide.featured).map((guide) => this.state.loading?<Skeleton avatar paragraph={{ rows: 4 }} />:<AdminCard guide={guide}/>)}
                     </div>
                 </div>
-                <Topdestination/>
 
             </div>
         );

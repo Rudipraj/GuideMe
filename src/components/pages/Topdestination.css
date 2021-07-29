@@ -1,5 +1,6 @@
 .dcontainer{
-    height: 500px;
+    max-width: 1200px;
+    margin: auto;
     background-color: white;
 }
 .dcontainer > h1{

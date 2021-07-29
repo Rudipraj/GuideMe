@@ -92,7 +92,7 @@ class Dashboard extends Component {
                             <Button onClick={() => this.setState({addNewTask: true})}>Add Guide </Button>
                         </div>
                         <div className="guides-wrap">
-                            {guidesList.map((guide) => <AdminCard guide={guide}/>)}
+                            {guidesList.map((guide) => <AdminCard onDelete={()=>this.getAllGuides()} guide={guide}/>)}
                         </div>
                     </TabPane>
                     <TabPane tab="Bookings" key="2">
