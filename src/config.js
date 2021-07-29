@@ -2,16 +2,15 @@ import firebase from "firebase";
 
 
 
-export const firebaseConfig =
-    {
-        apiKey: "AIzaSyB-DdQRRDMnXe9bLE8JPNa7k-PaS3tt6RI",
-        authDomain: "react-test-project-2672a.firebaseapp.com",
-        projectId: "react-test-project-2672a",
-        storageBucket: "react-test-project-2672a.appspot.com",
-        messagingSenderId: "623433452626",
-        appId: "1:623433452626:web:0ed86e7640afc7a070a38b",
-        measurementId: "G-XJFS1C28J4"
-    };
+export const firebaseConfig = {
+    apiKey: "AIzaSyB-ZguW3F3a7e2drdK4rLdPvhESPLBdTPk",
+    authDomain: "guide-me-a542c.firebaseapp.com",
+    projectId: "guide-me-a542c",
+    storageBucket: "guide-me-a542c.appspot.com",
+    messagingSenderId: "144774095775",
+    appId: "1:144774095775:web:bd56f35ec7756cde6593aa",
+    measurementId: "G-FCSMP8B37S"
+};
 
 export const randomIdGenerator = () => {
     return Math.random().toString(36).slice(2);

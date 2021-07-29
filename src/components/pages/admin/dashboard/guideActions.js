@@ -1,10 +1,10 @@
 import React, {useEffect, useRef} from 'react';
-import {Button, Checkbox, Col, Form, message, Row, Upload} from "antd";
+import {Button, Checkbox, Col, Form, Input, message, Row, Select, Upload} from "antd";
 import firebase from "firebase";
-import {LoadingOutlined,PlusOutlined} from "@ant-design/icons"
-import {randomIdGenerator} from "../../../../config";
+import {LoadingOutlined, PlusOutlined} from "@ant-design/icons"
+import {districts, randomIdGenerator} from "../../../../config";
 
-const GuideActions = ({addedGuide,guide}) => {
+const GuideActions = ({addedGuide, guide}) => {
     const [imageUrl, setImageUrl] = React.useState('');
     const [finalUrl, setFinalUrl] = React.useState('');
     const [loadingImage, setLoading] = React.useState(false);
@@ -14,7 +14,6 @@ const GuideActions = ({addedGuide,guide}) => {
         inputRef.current['fName'].focus()
 
     }, []);
-
 
 
     function beforeUpload(file) {
@@ -34,7 +33,7 @@ const GuideActions = ({addedGuide,guide}) => {
         handleUpload()
     };
     const handleUpload = e => {
-        let storage=firebase.storage()
+        let storage = firebase.storage()
         setLoading(true);
         console.log("uploading...");
 
@@ -53,7 +52,7 @@ const GuideActions = ({addedGuide,guide}) => {
             });
     };
     const handleAddGuide = (e) => {
-        let randomId=randomIdGenerator();
+        let randomId = randomIdGenerator();
         let database = firebase.firestore();
         database.collection("guides").doc(randomId).set({
             fName: inputRef.current['fName'].value,
@@ -63,6 +62,7 @@ const GuideActions = ({addedGuide,guide}) => {
             twitter: inputRef.current['twitter'].value,
             facebook: inputRef.current['facebook'].value,
             featured: inputRef.current['isFeatured'].state.checked,
+            district: inputRef.current['district'].value,
             createdDate: Date.now(),
             description: inputRef.current['description'].value,
             id: randomId,
@@ -82,8 +82,8 @@ const GuideActions = ({addedGuide,guide}) => {
     }
     const uploadButton = (
         <div>
-            {loadingImage ? <LoadingOutlined /> : <PlusOutlined />}
-            <div style={{ marginTop: 8 }}>Upload</div>
+            {loadingImage ? <LoadingOutlined/> : <PlusOutlined/>}
+            <div style={{marginTop: 8}}>Upload</div>
         </div>
     );
     return (
@@ -98,38 +98,68 @@ const GuideActions = ({addedGuide,guide}) => {
                         beforeUpload={beforeUpload}
                         onChange={handleChange}
                     >
-                        {finalUrl ? <img loading="lazy" src={finalUrl} alt="avatar" style={{width: '100%'}}/> : uploadButton}
+                        {finalUrl ?
+                            <img loading="lazy" src={finalUrl} alt="avatar" style={{width: '100%'}}/> : uploadButton}
                     </Upload>
                 </Col>
                 <Col span={12}>
-                    <input className="input-user" placeholder="first name" ref={el => inputRef.current['fName'] = el}/>
+                    <Form.Item
+                        rules={[{required: true, message: 'Please choose a tag'}]}
+                    >
+                        <input placeholder="first name"
+                               ref={el => inputRef.current['fName'] = el}/>
+                    </Form.Item>
+                </Col>
+                <Col span={12}>
+                    <Form.Item
+                        rules={[{required: true, message: 'Please choose a tag'}]}
+                    >
+                        <input  placeholder="last name"
+                               ref={el => inputRef.current['lName'] = el}/>
+                    </Form.Item>
+                </Col>
+                <Col span={12}>
+                    <input  placeholder="email" ref={el => inputRef.current['email'] = el}/>
 
                 </Col>
                 <Col span={12}>
-                    <input className="input-user" placeholder="last name" ref={el => inputRef.current['lName'] = el}/>
+                    <Form.Item
+                        rules={[{required: true, message: 'Please choose a tag'}]}
+                    >
+                        <input  placeholder="phone" ref={el => inputRef.current['phoneNo'] = el}/>
+                    </Form.Item>
+                </Col>
+                <Col span={12}>
+                    <Form.Item
+                        rules={[{required: true, message: 'Please choose a tag'}]}
+                    >
+                        <input  placeholder="Facebook link"
+                               ref={el => inputRef.current['facebook'] = el}/>
+                    </Form.Item>
+                </Col>
+                <Col span={12}>
+                    <Form.Item
+                        rules={[{required: true, message: 'Please choose a tag'}]}
+                    >
+                    <input  placeholder="twitter link"
+                           ref={el => inputRef.current['twitter'] = el}/>
+                    </Form.Item>
+                </Col>
+                <Col span={12}>
+                    <Form.Item
 
+                        rules={[{required: true, message: 'Please choose a tag'}]}
+                    >
+                   <select ref={el => inputRef.current['district'] = el} style={{width:"100%"}}>
+                       {districts.map((district)=>
+                           <option value={district.Name}>{district.Name}</option>
+                       )}
+                   </select>
+                    </Form.Item>
                 </Col>
                 <Col span={12}>
-                    <input className="input-user" placeholder="email" ref={el => inputRef.current['email'] = el}/>
-
-                </Col>
-                <Col span={12}>
-
-                    <input className="input-user" placeholder="phone" ref={el => inputRef.current['phoneNo'] = el}/>
-
-                </Col>
-                <Col span={12}>
-                    <input className="input-user" placeholder="Facebook link" ref={el => inputRef.current['facebook'] = el}/>
-
-                </Col>
-                <Col span={12}>
-                    <input className="input-user" placeholder="twitter link" ref={el => inputRef.current['twitter'] = el}/>
-                </Col>
-                <Col span={12}>
-                    <input className="input-user" placeholder="twitter link" ref={el => inputRef.current['twitter'] = el}/>
-                </Col>
-                <Col span={12}>
-                    <Checkbox placeholder="featured" className="input-user" ref={el => inputRef.current['isFeatured'] = el}>Featured guide</Checkbox>
+                    <Checkbox placeholder="featured" className="input-user"
+                              ref={el => inputRef.current['isFeatured'] = el}>Featured guide</Checkbox>
                 </Col>
                 <Col span={12}>
                     <textarea placeholder="description" className="input-user"

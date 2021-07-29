@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Navbars from "../../../Navbars";
 import Footer from "../../Footer/Footer";
-import {Button, Drawer, Tabs} from "antd";
+import {Button, Card, Drawer, Tabs} from "antd";
 import "./dashboard.css"
 import Title from "antd/es/typography/Title";
 import {database, randomIdGenerator} from "../../../../config";
@@ -16,14 +16,26 @@ class Dashboard extends Component {
         super(props, context);
         this.state = {
             guidesList: [],
+            inquiresList: [],
             addNewTask: false
         }
     }
 
     componentDidMount() {
-        this.getAllGuides()
+        this.getAllGuides();
+        this.getAllQueries();
     }
 
+    getAllQueries = () => {
+        let inquires = [];
+        this.setState({loading: true})
+        database.collection('inquires').get().then((res) => {
+            res.forEach(res => {
+                inquires.push(res.data())
+            })
+            this.setState({loading: false, inquiresList: inquires})
+        })
+    }
     getAllGuides = () => {
         let guides = [];
         this.setState({loading: true})
@@ -86,8 +98,17 @@ class Dashboard extends Component {
                     <TabPane tab="Bookings" key="2">
                         Content of Tab Pane 3
                     </TabPane>
-                    <TabPane tab="Feedbacks" key="3">
-                        Content of Tab Pane 2
+                    <TabPane tab="Inquries" key="3">
+                        {this.state.inquiresList.map((item)=>
+                        <Card>
+                            <div>{item.fName}</div>
+                            <div>{item.lName}</div>
+                            <div>{item.email}</div>
+                            <div>{item.message}</div>
+                        </Card>
+                        )
+
+                        }
                     </TabPane>
                 </Tabs>
                 <Drawer
