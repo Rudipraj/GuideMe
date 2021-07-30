@@ -69,9 +69,9 @@ class App extends React.Component {
                     <Route path='/sign-in' component={Signup}/>
                     <Route path='/guides/:guideId' component={GuideDetail}/>
                     <Route path='/destinations' component={TopDestination}/>
-                    <Redirect from="*" to="/"/>
-                    {isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:'' }
-                    {/* <Route path={'/dashboard'} component={Dashboard}/> */}
+                    {/* <Redirect from="*" to="/"/>
+                    {isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:'' } */}
+                    <Route path={'/dashboard'} component={Dashboard}/>
                 </Switch>
                 <Footer/>
             </Router>

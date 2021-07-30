@@ -1,4 +1,5 @@
 import React, {useEffect, useRef} from 'react';
+import {Link } from 'react-router-dom';
 import {Button, Checkbox, Col, Form, Input, message, Row, Select, Upload} from "antd";
 import firebase from "firebase";
 import {LoadingOutlined, PlusOutlined} from "@ant-design/icons"
@@ -172,8 +173,7 @@ const GuideActions = ({addedGuide, guide, fromUser}) => {
                     <textarea placeholder="description" className="input-user" ref={el => inputRef.current['description'] = el}/>
                 </Col>
             </Row>
-            <Button onClick={(e) => handleAddGuide(e)}>{fromUser?'Submit':'Add Guide'}</Button>
-
+            <Link to ="guides/:guideId"><Button onClick={(e) => handleAddGuide(e)}>{fromUser?'Submit':'Add Guide'}</Button> </Link>
         </Form>
     );
 }
