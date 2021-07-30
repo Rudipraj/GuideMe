@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gowun+Batang:wght@400;700&family=Patrick+Hand&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Gowun+Batang:wght@400;700&display=swap');
+
+
+
+.guide-detail{
+    background-color: rgb(147, 126, 223);
+    height: 900px;
+    display: flex;
+    flex-direction: row;
+}
+.avatar-container{
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    
+}
+.guide-avatar{
+    border-radius: 50%;
+    margin-top: 40px;
+    margin-left: 100px;
+    width: 600px;
+    height: 600px;
+    border: 3px solid white ;
+}
+.avatar-name{
+    
+    color: honeydew;
+    margin-left: 40px;
+    font-size: 32px;
+}
+.book-action{
+    display: flex;
+    flex-direction: row;
+    height: 50px;
+    margin-top: 50px;
+}
+.book-btn{
+    margin-left: 200px;
+    width: 150px;
+    border: 1px solid white;
+    border-radius: 4px;
+}
+.info-container{
+    background-color: white;
+    width: 50%;
+    padding: 20px;
+    margin-left: 20px;
+    border: 1px solid blue;
+    border-radius: 8px;
+    
+}
+.info-container > h1{
+    text-align: center;
+    color: #1c2237;
+}
+.guide-info{
+    margin-left: 40px;
+    font-size: 20px;
+    color: #1c2237;
+    padding: 40px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Gowun Batang', serif;
+    font-family: 'Patrick Hand', cursive;
+    letter-spacing: 8px;
+}
+.guide-desc{
+    color: rgb(255, 255, 255);
+    background-color: rgb(169, 166, 180);
+    border: 1px solid rgb(169, 166, 180);
+    border-radius:4px;
+    height: 150px;
+    padding-left: 20px;
+    padding-top: 20px;
+    
+}
+.info-data{
+    font-size: 18px;
+    font-family: 'Anton', sans-serif;
+    font-family: 'Gowun Batang', serif;
+    letter-spacing: 4px;
+
+}
+.social-link > i{
+    font-size: 42px;
+    letter-spacing: 60px;
+    color: blue;
+}

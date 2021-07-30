@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Home from './components/pages/Home';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router,Redirect, Route, Switch} from 'react-router-dom';
 import Login from './components/pages/signin/Login'
 import Navbars from './components/Navbars';
 import Signup from './components/pages/signin/Signup'
@@ -52,7 +52,7 @@ class App extends React.Component {
 
     }
     isAdmin = (email) => {
-        let admins = ['sudhirbhattarai2@gmail.com', 'rihdusbhattarai71@gmail.com', 'sudhirbhattarai71@gmail.com']
+        let admins = ['sudhirbhattarai2@gmail.com','khatiwadarudeep@gmail.com','rihdusbhattarai71@gmail.com', 'sudhirbhattarai71@gmail.com']
         return admins.includes(email);
     }
 
@@ -69,8 +69,9 @@ class App extends React.Component {
                     <Route path='/sign-in' component={Signup}/>
                     <Route path='/guides/:guideId' component={GuideDetail}/>
                     <Route path='/destinations' component={TopDestination}/>
-                    {/*{isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:'' }*/}
-                    <Route path={'/dashboard'} component={Dashboard}/>
+                    <Redirect from="*" to="/"/>
+                    {isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:'' }
+                    {/* <Route path={'/dashboard'} component={Dashboard}/> */}
                 </Switch>
                 <Footer/>
             </Router>

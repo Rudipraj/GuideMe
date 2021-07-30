@@ -94,13 +94,13 @@ function Navbars() {
                             {isLogin ?
                                 <Dropdown trigger="click" overlay={
                                             <Card style={{display:"grid"}}>
-                                                <button style={{background:"#ccc",color:"#1c2237",width:"100%",whiteSpace:"pre"}} onClick={() => {
+                                                <button style={{background:"#ccc",color:"#fff",width:"100%",whiteSpace:"pre"}} onClick={() => {
                                                     localStorage.clear();
                                                     window.location.href = "/";
                                                 }}>
                                                     <span>Logout</span>
                                                 </button>
-                                                <button style={{background:"#ccc",color:"#1c2237",width:"100%",whiteSpace:"pre"}} onClick={() => {
+                                                <button style={{background:"#ccc",color:"#fff",width:"100%",whiteSpace:"pre"}} onClick={() => {
                                                     window.location.href = "/dashboard";
                                                 }}>
                                                     <span>Admin dashboard</span>

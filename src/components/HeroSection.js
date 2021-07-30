@@ -1,9 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import hero from './images/hero.jpg';
 import './HeroSection.css';
 import {Card, Dropdown, Empty,Typography} from "antd";
 import {database} from "../config";
  const {Title}=Typography;
+
 
 class HeroSection extends React.Component {
     constructor(props, context) {
@@ -65,8 +67,10 @@ class HeroSection extends React.Component {
                     <p>Find the best Tourist Guides around...</p>
                     <div className="search-bar">
                         <div className="search-input">
+                            
                             <Dropdown overlay={<div className="search-card-main">
                                 {searchedValue.length>0? searchedValue.map((item, index) =>
+                                <Link to='./guides/:guideId'>
                                     <Card style={{padding: 0}} className="search-card-wrap">
                                         <div style={{padding: 0}} className="search-cards flex-between">
                                             <img width="50" height="50" src={item.avatar} className="logoImage"/>
@@ -78,6 +82,7 @@ class HeroSection extends React.Component {
                                         </div>
 
                                     </Card>
+                                    </Link>
                                 ) : <Card className="search-card-wrap"> <Empty description="no data found"/></Card>
                                 }
 
