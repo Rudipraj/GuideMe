@@ -59,3 +59,24 @@
     padding: 8px;
     cursor: pointer;
 }
+.signup-wrapper
+{
+    max-width: 1200px;
+    margin: 2em auto;
+    height: 100vh;
+}
+.signup-wrapper input,.signup-wrapper select,.signup-wrapper button
+{
+    width:100%;
+    padding:0.5em;
+    font-size: 1.14em;
+    outline: none;
+}
+.signup-wrapper button
+{
+    height: 50px;
+}
+.signup-wrapper h2
+{
+    text-transform: uppercase;
+}

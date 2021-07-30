@@ -92,7 +92,7 @@ class Dashboard extends Component {
                             <Button onClick={() => this.setState({addNewTask: true})}>Add Guide </Button>
                         </div>
                         <div className="guides-wrap">
-                            {guidesList.map((guide) => <AdminCard onDelete={()=>this.getAllGuides()} guide={guide}/>)}
+                            {guidesList.map((guide) => <AdminCard fromAdmin={true} onDelete={()=>this.getAllGuides()} guide={guide}/>)}
                         </div>
                     </TabPane>
                     <TabPane tab="Bookings" key="2">
@@ -100,14 +100,13 @@ class Dashboard extends Component {
                     </TabPane>
                     <TabPane tab="Inquries" key="3">
                         {this.state.inquiresList.map((item)=>
-                        <Card>
-                            <div>{item.fName}</div>
-                            <div>{item.lName}</div>
-                            <div>{item.email}</div>
-                            <div>{item.message}</div>
-                        </Card>
+                            <Card>
+                                <div>{item.fName}</div>
+                                <div>{item.lName}</div>
+                                <div>{item.email}</div>
+                                <div>{item.message}</div>
+                            </Card>
                         )
-
                         }
                     </TabPane>
                 </Tabs>

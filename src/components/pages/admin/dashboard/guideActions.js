@@ -3,10 +3,11 @@ import {Button, Checkbox, Col, Form, Input, message, Row, Select, Upload} from "
 import firebase from "firebase";
 import {LoadingOutlined, PlusOutlined} from "@ant-design/icons"
 import {districts, randomIdGenerator} from "../../../../config";
-
-const GuideActions = ({addedGuide, guide}) => {
+import "./guide.css"
+const GuideActions = ({addedGuide, guide, fromUser}) => {
     const [imageUrl, setImageUrl] = React.useState('');
     const [finalUrl, setFinalUrl] = React.useState('');
+    const [userData, setData] = React.useState( JSON.parse(localStorage.getItem('userData')));
     const [loadingImage, setLoading] = React.useState(false);
     const [guideValues, setGuideValues] = React.useState(guide ? {...guide} : {})
     const inputRef = useRef({});
@@ -52,20 +53,22 @@ const GuideActions = ({addedGuide, guide}) => {
             });
     };
     const handleAddGuide = (e) => {
-        let randomId = randomIdGenerator();
+        let id = userData.id;
         let database = firebase.firestore();
-        database.collection("guides").doc(randomId).set({
+        database.collection("guides").doc(id).set({
             fName: inputRef.current['fName'].value,
             lName: inputRef.current['lName'].value,
             email: inputRef.current['email'].value,
             phone: inputRef.current['phoneNo'].value,
             twitter: inputRef.current['twitter'].value,
             facebook: inputRef.current['facebook'].value,
-            featured: inputRef.current['isFeatured'].state.checked,
+            featured: fromUser?false:inputRef.current['isFeatured'].state.checked,
+            approved: false,
             district: inputRef.current['district'].value,
             createdDate: Date.now(),
+            updatedAt: Date.now(),
             description: inputRef.current['description'].value,
-            id: randomId,
+            id: id,
             avatar: finalUrl,
         })
             .then((res) => {
@@ -87,7 +90,7 @@ const GuideActions = ({addedGuide, guide}) => {
         </div>
     );
     return (
-        <Form id={"add-user"} onSubmit={(e) => handleAddGuide(e)}>
+        <Form className="add-guide-form" id={"add-user"} onSubmit={(e) => handleAddGuide(e)}>
             <Row gutter={[16, 16]}>
                 <Col align={"center"} span={24}>
                     <Upload
@@ -114,26 +117,26 @@ const GuideActions = ({addedGuide, guide}) => {
                     <Form.Item
                         rules={[{required: true, message: 'Please choose a tag'}]}
                     >
-                        <input  placeholder="last name"
+                        <input placeholder="last name"
                                ref={el => inputRef.current['lName'] = el}/>
                     </Form.Item>
                 </Col>
                 <Col span={12}>
-                    <input  placeholder="email" ref={el => inputRef.current['email'] = el}/>
+                    <input placeholder="email" ref={el => inputRef.current['email'] = el}/>
 
                 </Col>
                 <Col span={12}>
                     <Form.Item
                         rules={[{required: true, message: 'Please choose a tag'}]}
                     >
-                        <input  placeholder="phone" ref={el => inputRef.current['phoneNo'] = el}/>
+                        <input placeholder="phone" ref={el => inputRef.current['phoneNo'] = el}/>
                     </Form.Item>
                 </Col>
                 <Col span={12}>
                     <Form.Item
                         rules={[{required: true, message: 'Please choose a tag'}]}
                     >
-                        <input  placeholder="Facebook link"
+                        <input placeholder="Facebook link"
                                ref={el => inputRef.current['facebook'] = el}/>
                     </Form.Item>
                 </Col>
@@ -141,8 +144,8 @@ const GuideActions = ({addedGuide, guide}) => {
                     <Form.Item
                         rules={[{required: true, message: 'Please choose a tag'}]}
                     >
-                    <input  placeholder="twitter link"
-                           ref={el => inputRef.current['twitter'] = el}/>
+                        <input placeholder="twitter link"
+                               ref={el => inputRef.current['twitter'] = el}/>
                     </Form.Item>
                 </Col>
                 <Col span={12}>
@@ -150,25 +153,26 @@ const GuideActions = ({addedGuide, guide}) => {
 
                         rules={[{required: true, message: 'Please choose a tag'}]}
                     >
-                   <select ref={el => inputRef.current['district'] = el} style={{width:"100%"}}>
-                       {districts.map((district)=>
-                           <option value={district.Name}>{district.Name}</option>
-                       )}
-                   </select>
+                        <select ref={el => inputRef.current['district'] = el} style={{width: "100%"}}>
+                            {districts.map((district) =>
+                                <option value={district.Name}>{district.Name}</option>
+                            )}
+                        </select>
                     </Form.Item>
                 </Col>
-                <Col span={12}>
-                    <Checkbox placeholder="featured" className="input-user"
-                              ref={el => inputRef.current['isFeatured'] = el}>Featured guide</Checkbox>
-                </Col>
-                <Col span={12}>
-                    <textarea placeholder="description" className="input-user"
-                              ref={el => inputRef.current['description'] = el}/>
-                </Col>
+                {fromUser ? '' :
+                    <div>
+                        <Col span={12}>
+                            <Checkbox placeholder="featured" className="input-user"
+                                      ref={el => inputRef.current['isFeatured'] = el}>Featured guide</Checkbox>
+                        </Col>
+                    </div>}
 
-
+                <Col span={12}>
+                    <textarea placeholder="description" className="input-user" ref={el => inputRef.current['description'] = el}/>
+                </Col>
             </Row>
-            <Button onClick={(e) => handleAddGuide(e)}>Add Guide</Button>
+            <Button onClick={(e) => handleAddGuide(e)}>{fromUser?'Submit':'Add Guide'}</Button>
 
         </Form>
     );

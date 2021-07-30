@@ -1,0 +1,15 @@
+.add-guide-form input,.add-guide-form select,.add-guide-form button
+{
+    width:100%;
+    padding:0.5em;
+    font-size: 1.14em;
+    outline: none;
+}
+.add-guide-form button
+{
+    height: 50px;
+}
+.add-guide-form h2
+{
+    text-transform: uppercase;
+}

@@ -13,6 +13,7 @@ import 'antd/dist/antd.css';
 import firebase from "firebase";
 import {firebaseConfig} from "./config";
 import Dashboard from "./components/pages/admin/dashboard/dashboard";
+import GuideDetail from "./components/guide/guideDetail";
 
 class App extends React.Component {
     constructor(props, context) {
@@ -66,6 +67,7 @@ class App extends React.Component {
                     <Route path='/aboutus' component={Aboutus}/>
                     <Route path='/sign-up' component={Login}/>
                     <Route path='/sign-in' component={Signup}/>
+                    <Route path='/guides/:guideId' component={GuideDetail}/>
                     <Route path='/destinations' component={TopDestination}/>
                     {/*{isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:'' }*/}
                     <Route path={'/dashboard'} component={Dashboard}/>

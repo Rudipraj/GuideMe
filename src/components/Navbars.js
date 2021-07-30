@@ -82,6 +82,15 @@ function Navbars() {
                                     About us
                                 </Link>
                             </li>
+                            {isLogin?<li className='nav-item'>
+                                <Link
+                                    to='/sign-in'
+                                    className='nav-links'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Register as guide
+                                </Link>
+                            </li>:''}
                             {isLogin ?
                                 <Dropdown trigger="click" overlay={
                                             <Card style={{display:"grid"}}>

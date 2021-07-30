@@ -23,7 +23,11 @@ class Home extends React.Component {
         this.setState({loading: true})
         database.collection('guides').get().then((res) => {
             res.forEach(res => {
-                guides.push(res.data())
+                    if(res.data().approved && res.data().approved!==undefined)
+                    {
+                        console.log(res.data())
+                        guides.push(res.data())
+                    }
             })
             this.setState({loading: false, guidesList: guides})
         })
@@ -32,7 +36,7 @@ class Home extends React.Component {
         let {guidesList}=this.state;
         return (
             <div>
-                <HeroSection/>
+                <HeroSection guidesList={guidesList}/>
                 <Wwo/>
                 <Divider/>
                 <div style={{maxWidth:1200,margin:"100px auto"}}>

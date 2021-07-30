@@ -10,12 +10,12 @@ class HeroSection extends React.Component {
         super(props, context);
         this.state={
             searchedValue:[],
-            guidesList:[],
+            guidesList:this.props.guidesList,
             searched:false
         }
     }
     componentDidMount() {
-        this.getAllGuides()
+        // this.getAllGuides()
     }
 
     handleGuideSearch=(e)=>
@@ -50,6 +50,10 @@ class HeroSection extends React.Component {
             this.setState({loading: false, guidesList: guides})
         })
     }
+    componentWillReceiveProps(nextProps, nextContext) {
+        this.setState({guidesList:nextProps.guidesList})
+    }
+
     render() {
         let {searchedValue,searched}=this.state;
         return (

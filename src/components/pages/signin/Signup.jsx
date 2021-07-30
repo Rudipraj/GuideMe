@@ -1,39 +1,87 @@
 import React from 'react';
 import './Signup.css';
+import GuideActions from "../admin/dashboard/guideActions";
+import {database} from "../../../config";
+import {Alert} from "antd";
+import {LoadingOutlined} from "@ant-design/icons"
+import AdminCard from "../admin/dashboard/adminCard";
 
-const Signup = () => {
-    return(
-        <>
-        <div className="form-container">
-        <h2>Confirm Your Identity</h2>
-            <div className="input-fields">
-                <label for="Firstname" className="userinfo">FirstName:</label>
-                <input type="name" value="" className="inputname" placeholder="first_name" />
-                <br />
+class Signup extends React.Component {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            myProfile: {},
+            isApproved: null,
+            pending: null,
+            isLogin: !!JSON.parse(localStorage.getItem('userData')) || false,
+            userInfo: JSON.parse(localStorage.getItem('userData')) || {},
+        }
+    }
 
-                <label for="Lastname" className="userinfo">Lastname:</label>
-                <input type="name" value="" className="inputname" placeholder="last_name"/>
-                <br />
-                <label for="email" className="userinfo">Email:</label>
-                <input type="name" value="" className="inputname" placeholder="www.abc@gmail.com" />
-                <br />
-                <label for="phone" className="userinfo">Phone:</label>
-                <input type="name" value="" className="inputname" placeholder="9800000000"/>
-                <br />
-                <label for="address" className="userinfo">Address:</label>
-                <input type="name" value="" className="inputname" placeholder="221B|Baker Road Street"/>
-                <br />
-                <label for="img" className="userinfo">Provide Citizenship:</label>
-                <input type="file" id="img" name="img" accept="image/*" className="inputname" />
-                <br/>
-                <button type='submit' className="submit-button">Submit</button>
-                
-                </div>
-                
-                
-                
-        </div>
-        </>
-    )
+    componentDidMount() {
+        if (this.state.isLogin) {
+            this.getAllGuides()
+        }
+    }
+
+    getAllGuides = () => {
+        let guides = [];
+        this.setState({loading: true})
+        database.collection('guides').get().then((res) => {
+            database.collection('guides').get().then((res) => {
+                res.forEach(res => {
+                    if (res.data().id === this.state.userInfo.id) {
+                        this.setState({myProfile: res.data()})
+                    }
+                    if (res.data().approved && res.data().id === this.state.userInfo.id) {
+                        this.setState({isApproved: true})
+                    } else if (!res.data().approved && res.data().id === this.state.userInfo.id) {
+                        this.setState({pending: true})
+                    }
+                })
+                this.setState({loading: false})
+
+            })
+        })
+    }
+
+    render() {
+        return (
+            <>
+                {this.state.loading ?
+                    <div align="center">
+                        <LoadingOutlined style={{fontSize: "5em"}}/>
+                    </div>
+                    : this.state.pending ?
+                        <div className="signup-wrapper">
+                            <Alert
+                                message="Your verification is pending"
+                                description="Please wait while admin approves your account. this might take some time"
+                                type="info"
+                                showIcon
+                            />
+                            <AdminCard fromAdmin={false} guide={this.state.myProfile}/>
+                        </div> :
+                        this.state.isApproved ?
+                            <div className="signup-wrapper">
+                                <Alert
+                                    message="Your account is verified"
+                                    description=""
+                                    type="success"
+                                    showIcon
+                                />
+                                <br/>
+                                <AdminCard fromAdmin={false} guide={this.state.myProfile}/>
+                            </div>
+
+                            :
+                            <div className="signup-wrapper">
+                                <h2>Add yourself as a guide</h2>
+                                <GuideActions fromUser={true}/>
+                            </div>}
+            </>
+        )
+    }
 }
+
 export default Signup;
