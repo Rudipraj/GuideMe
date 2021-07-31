@@ -7,6 +7,7 @@ import {IconContext} from 'react-icons/lib';
 import {Avatar, Card, Dropdown, Modal} from "antd";
 import Login from "./pages/signin/Login";
 import {LogoutOutlined} from "@ant-design/icons";
+import {isAdmin} from "../config";
 
 function Navbars() {
     const [click, setClick] = useState(false);
@@ -94,17 +95,22 @@ function Navbars() {
                             {isLogin ?
                                 <Dropdown trigger="click" overlay={
                                             <Card style={{display:"grid"}}>
-                                                <button style={{background:"#ccc",color:"#fff",width:"100%",whiteSpace:"pre"}} onClick={() => {
+                                                <button style={{cursor:"pointer",background:"orange",color:"#fff",width:"100%",whiteSpace:"pre"}} onClick={() => {
                                                     localStorage.clear();
                                                     window.location.href = "/";
                                                 }}>
                                                     <span>Logout</span>
                                                 </button>
-                                                <button style={{background:"#ccc",color:"#fff",width:"100%",whiteSpace:"pre"}} onClick={() => {
+                                                {isAdmin(userInfo.email)?<button style={{
+                                                    background: "#ccc",
+                                                    color: "#fff",
+                                                    width: "100%",
+                                                    whiteSpace: "pre"
+                                                }} onClick={() => {
                                                     window.location.href = "/dashboard";
                                                 }}>
                                                     <span>Admin dashboard</span>
-                                                </button>
+                                                </button>:''}
                                             </Card>
 
                                     } title={null}>

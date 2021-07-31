@@ -5,7 +5,7 @@ import firebase from "firebase";
 import {LoadingOutlined, PlusOutlined} from "@ant-design/icons";
 import GuideActions from "./guideActions";
 
-function GuideEdit({guide, fromUser}) {
+function GuideEdit({guide, fromUser,onEdited}) {
     const [guideValues, setGuideValues] = React.useState(guide)
     const [loading, setLoading] = React.useState(false)
     const [imageUrl, setImageUrl] = React.useState('')
@@ -47,10 +47,14 @@ function GuideEdit({guide, fromUser}) {
     };
     const handleUpdateGuide = (item,id) => {
         let database = firebase.firestore();
+        message.loading({content:"editing",key:id})
         database.collection("guides").doc(id).update(item)
             .then((res) => {
+                onEdited()
+                message.success({content:"edited",key:id})
             })
             .catch((error) => {
+                message.error({content:"failed to edit!",key:id})
             });
     }
     const uploadButton = (
@@ -168,13 +172,18 @@ function GuideEdit({guide, fromUser}) {
                                     setGuideValues(prevState => ({
                                         ...prevState
                                     }));
-                                }} placeholder="featured" className="input-user" value={guideValues.featured}>Featured
+                                }} placeholder="featured" className="input-user" checked={guideValues.featured}>Featured
                                     guide</Checkbox>
                             </Col>
                         </div>}
 
                     <Col span={12}>
-                        <textarea placeholder="description" className="input-user" value={guideValues.description}/>
+                        <textarea onChange={(e) => {
+                            guideValues.description = e.target.value;
+                            setGuideValues(prevState => ({
+                                ...prevState
+                            }));
+                        }} placeholder="description" className="input-user" value={guideValues.description}/>
                     </Col>
                 </Row>
                 <Button onClick={(e) => handleUpdateGuide(guideValues,guideValues.id)}>{fromUser ? 'Submit' : 'Edit Guide'}</Button>

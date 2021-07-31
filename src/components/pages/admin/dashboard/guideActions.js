@@ -173,7 +173,7 @@ const GuideActions = ({addedGuide, guide, fromUser}) => {
                     <textarea placeholder="description" className="input-user" ref={el => inputRef.current['description'] = el}/>
                 </Col>
             </Row>
-            <Link to ="guides/:guideId"><Button onClick={(e) => handleAddGuide(e)}>{fromUser?'Submit':'Add Guide'}</Button> </Link>
+            <Button onClick={(e) => handleAddGuide(e)}>{fromUser?'Submit':'Add Guide'}</Button>
         </Form>
     );
 }

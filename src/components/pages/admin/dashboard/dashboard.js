@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import Navbars from "../../../Navbars";
 import Footer from "../../Footer/Footer";
-import {Button, Card, Drawer, Tabs} from "antd";
+import {Button, Card, Divider, Drawer, Tabs, Tag} from "antd";
 import "./dashboard.css"
 import Title from "antd/es/typography/Title";
 import {database, randomIdGenerator} from "../../../../config";
@@ -79,7 +79,17 @@ class Dashboard extends Component {
     callback = (key) => {
         console.log(key);
     }
-
+    checkBook=(msg)=>
+    {
+        if(msg)
+        {
+            return msg.includes('I would like to book')
+        }
+        else
+        {
+            return false
+        }
+    }
     render() {
         let {guidesList, addNewTask} = this.state;
         return (
@@ -92,22 +102,26 @@ class Dashboard extends Component {
                             <Button onClick={() => this.setState({addNewTask: true})}>Add Guide </Button>
                         </div>
                         <div className="guides-wrap">
-                            {guidesList.map((guide) => <AdminCard fromAdmin={true} onDelete={()=>this.getAllGuides()} guide={guide}/>)}
+                            {guidesList.map((guide) => <AdminCard guideEdited={()=>this.getAllGuides()} fromAdmin={true} onDelete={()=>this.getAllGuides()} guide={guide}/>)}
                         </div>
                     </TabPane>
-                    <TabPane tab="Bookings" key="2">
-                        Content of Tab Pane 3
-                    </TabPane>
-                    <TabPane tab="Inquries" key="3">
-                        {this.state.inquiresList.map((item)=>
-                            <Card>
-                                <div>{item.fName}</div>
-                                <div>{item.lName}</div>
-                                <div>{item.email}</div>
-                                <div>{item.message}</div>
-                            </Card>
-                        )
-                        }
+                    <TabPane tab="Bookings and Inquiries" key="3">
+                        <div style={{margin:"2em 0"}}>
+                            {this.state.inquiresList.reverse().map((item)=>
+                                <Card style={{borderColor:this.checkBook(item.message)?'orange':''}}>
+                                    {this.checkBook(item.message)?<Tag color={"green"}>Booking request</Tag>:''}
+                                    <div>
+                                        <h3>Customer detail</h3>
+                                        <div>{item.fName} {item.lName}</div>
+                                        <div>{item.email}</div>
+                                    </div>
+
+                                    <div><b>Message</b>{item.message}</div>
+                                </Card>
+                            )
+                            }
+                        </div>
+
                     </TabPane>
                 </Tabs>
                 <Drawer

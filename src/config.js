@@ -11,7 +11,10 @@ export const firebaseConfig = {
     appId: "1:144774095775:web:bd56f35ec7756cde6593aa",
     measurementId: "G-FCSMP8B37S"
 };
-
+export const isAdmin = (email) => {
+    let admins = ['sudhirbhattarai2@gmail.com','khatiwadarudeep@gmail.com','rihdusbhattarai71@gmail.com', 'sudhirbhattarai71@gmail.com']
+    return admins.includes(email);
+}
 export const randomIdGenerator = () => {
     return Math.random().toString(36).slice(2);
 }

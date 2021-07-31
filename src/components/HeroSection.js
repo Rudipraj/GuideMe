@@ -67,13 +67,12 @@ class HeroSection extends React.Component {
                     <p>Find the best Tourist Guides around...</p>
                     <div className="search-bar">
                         <div className="search-input">
-                            
                             <Dropdown overlay={<div className="search-card-main">
                                 {searchedValue.length>0? searchedValue.map((item, index) =>
-                                <Link to='./guides/:guideId'>
+                                <Link to={`/guides/${item.id}`}>
                                     <Card style={{padding: 0}} className="search-card-wrap">
                                         <div style={{padding: 0}} className="search-cards flex-between">
-                                            <img width="50" height="50" src={item.avatar} className="logoImage"/>
+                                            <img draggable={false} width="50" height="50" src={item.avatar} className="logoImage"/>
                                             <div>
                                                 <Title style={{color: "#000"}} level={5} align="left" ellipsis={{rows: 3}}>
                                                     {item.fName+' '+item.lName}, {item.phone}

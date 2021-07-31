@@ -14,7 +14,7 @@ class Aboutus extends React.Component {
     componentDidMount() {
     }
 
-    handleAddGuide = (e) => {
+    handleAddInquires = (e) => {
         e.preventDefault();
         let randomId = randomIdGenerator();
         let database = firebase.firestore();
@@ -62,7 +62,7 @@ class Aboutus extends React.Component {
                     <h1>Reach Out our Team</h1>
                     <div className="abt-2">
                         <div className="f-container">
-                            <form onSubmit={(e)=>this.handleAddGuide(e)}>
+                            <form onSubmit={(e)=>this.handleAddInquires(e)}>
                                 <div className="name-container">
                                     <div className="fn-container">
                                         <label>First Name:</label>

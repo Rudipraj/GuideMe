@@ -11,7 +11,7 @@ import Footer from './components/pages/Footer/Footer';
 import Services from './components/pages/Services'
 import 'antd/dist/antd.css';
 import firebase from "firebase";
-import {firebaseConfig} from "./config";
+import {firebaseConfig, isAdmin} from "./config";
 import Dashboard from "./components/pages/admin/dashboard/dashboard";
 import GuideDetail from "./components/guide/guideDetail";
 
@@ -28,7 +28,7 @@ class App extends React.Component {
     componentDidMount() {
         this.initializeFirebase();
         if (this.state.isLogin) {
-            this.setState({isAdmin: this.isAdmin(this.state.userInfo.email)})
+            this.setState({isAdmin: isAdmin(this.state.userInfo.email)})
         }
     }
 
@@ -51,10 +51,7 @@ class App extends React.Component {
         firebase.analytics();
 
     }
-    isAdmin = (email) => {
-        let admins = ['sudhirbhattarai2@gmail.com','khatiwadarudeep@gmail.com','rihdusbhattarai71@gmail.com', 'sudhirbhattarai71@gmail.com']
-        return admins.includes(email);
-    }
+
 
     render() {
         let {isAdmin} = this.state;
@@ -69,9 +66,8 @@ class App extends React.Component {
                     <Route path='/sign-in' component={Signup}/>
                     <Route path='/guides/:guideId' component={GuideDetail}/>
                     <Route path='/destinations' component={TopDestination}/>
-                    {/* <Redirect from="*" to="/"/>
-                    {isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:'' } */}
-                    <Route path={'/dashboard'} component={Dashboard}/>
+                    {isAdmin?<Route path={'/dashboard'} component={Dashboard}/>:''}
+                    {/*<Route path={'/dashboard'} component={Dashboard}/>*/}
                 </Switch>
                 <Footer/>
             </Router>
