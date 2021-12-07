@@ -38,15 +38,15 @@ class App extends React.Component {
         } else {
             firebase.app(); // if already initialized, use that one
         }
-        // let dbUsers=[];
-        // database.collection('users').get().then((res)=>
-        // {
-        //     res.forEach(res=>{
-        //         console.log(res.data())
-        //         dbUsers.push(res.data())
-        //     })
-        //    this.setState({users:dbUsers})
-        //
+         //let dbUsers=[];
+         //database.collection('users').get().then((res)=>
+         //{
+             //res.forEach(res=>{
+                // console.log(res.data())
+              //   dbUsers.push(res.data())
+            // })
+          //  this.setState({users:dbUsers})
+        
         // })
         firebase.analytics();
 

@@ -12,7 +12,7 @@ export const firebaseConfig = {
     measurementId: "G-FCSMP8B37S"
 };
 export const isAdmin = (email) => {
-    let admins = ['sudhirbhattarai2@gmail.com','khatiwadarudeep@gmail.com','rihdusbhattarai71@gmail.com', 'sudhirbhattarai71@gmail.com']
+    let admins = ['khatiwadarudeep@gmail.com', 'sudhirbhattarai71@gmail.com']
     return admins.includes(email);
 }
 export const randomIdGenerator = () => {
